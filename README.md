@@ -4,3 +4,5 @@ Resumo:
 Este projeto trata da criação de um shell simples.
 Sim, seu próprio pequeno bash.
 Você aprenderá muito sobre processos e descritores de arquivos.
+
+🐢 Você deve se limitar à descrição do assunto. Tudo o que não é pedido não é obrigatório. Se você tiver alguma dúvida sobre algum requisito, tome o bash como referência.
