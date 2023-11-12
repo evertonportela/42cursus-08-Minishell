@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 20:25:08 by evportel          #+#    #+#             */
-/*   Updated: 2023/11/05 22:03:53 by evportel         ###   ########.fr       */
+/*   Updated: 2023/11/12 16:06:00 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@
 # include <stdlib.h>
 # include <readline/readline.h>
 # include <readline/history.h>
+# include "libft/libft.h"
 
 #endif

@@ -6,9 +6,15 @@
 #    By: evportel <evportel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/05 10:41:40 by evportel          #+#    #+#              #
-#    Updated: 2023/10/05 22:27:00 by evportel         ###   ########.fr        #
+#    Updated: 2023/11/12 17:29:41 by evportel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+# COLORS ********************************************************************* #
+RED		=	\033[31m
+GREEN	=	\033[32m
+YELLOW	=	\033[33m
+RESET	=	\033[0m
 
 SOURCES			= ft_isalpha.c	ft_isdigit.c	ft_isalnum.c	ft_isascii.c\
 				ft_isprint.c	ft_memset.c		ft_strlen.c		ft_bzero.c\
@@ -44,10 +50,12 @@ $(NAME):		$(OBJECTS)
 				@$(CC) $(FLAGS) -I ./ -c $< -o $@
 
 clean:
-	@$(RM) $(OBJECTS)
+				$(RM) $(OBJECTS)
+				@printf "${RED}${NAME} - Removed project objects${RESET}\n"
 
 fclean:			clean
-	@$(RM) $(NAME)
+				@$(RM) $(NAME)
+				@printf "${RED}${NAME} - Program removed${RESET}\n"
 
 re: fclean all
 
