@@ -6,7 +6,7 @@
 #    By: evportel <evportel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/05 20:15:50 by evportel          #+#    #+#              #
-#    Updated: 2023/11/15 11:00:23 by evportel         ###   ########.fr        #
+#    Updated: 2023/11/15 11:12:43 by evportel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ NAME		=	minishell
 CC			=	cc
 FLAGS		=	-Wall -Wextra -Werror -g3
 
-SRC			=	main.c
+SRC			=	${addprefix src/, main.c} \
+				${addprefix src/utils/, ft_clean_mult_allocations.c}
 
 OBJ			=	${SRC:.c=.o}
 HEADER		=	-I./
