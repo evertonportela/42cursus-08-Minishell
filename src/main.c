@@ -6,40 +6,36 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 20:03:12 by evportel          #+#    #+#             */
-/*   Updated: 2023/11/12 17:49:48 by evportel         ###   ########.fr       */
+/*   Updated: 2023/11/15 13:12:23 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
-char	**ft_parser(char *content)
+int	main(int argc __attribute__((unused)), char **argv __attribute__((unused)),
+		char **env)
 {
-	char	**single_line_commands;
+	char	*prompt_line;
+	int		status;
 
-	/* Divide a string do comando em argumentos individuais */
-	single_line_commands = ft_split(content, ' ');
-	return (single_line_commands);
-}
-
-int	main(void)
-{
-	char	*res;
-	char	**single_line_commands;
-
-	while (1)
+	status = 0;
+	while (status == 0)
 	{
-		res = readline("ostra > ");
-		if (res == NULL
-		)
+		prompt_line = readline("cadet@sururu: $ ");
+		if (prompt_line == NULL)
 			exit(1);
-		if (res[0] == '\0')
+		if (prompt_line[0] == '\0')
 			exit(1);
-		if (ft_strncmp(res, "exit", 4) == 0)
+		if (ft_strncmp(prompt_line, "exit", 4) == 0)
 		{
-			printf("exit\n");
-			exit(1);
+			ft_printf("exit\n");
+			status = 1;
 		}
-		single_line_commands = ft_parser(res);
+		if (ft_exec_command(prompt_line, env) == EXIT_FAILURE)
+		{
+			ft_printf("Fail :(\n");
+		}
+		free(prompt_line);
 	}
 	return (EXIT_SUCCESS);
 }
