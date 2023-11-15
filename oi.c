@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   oi.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/05 20:25:08 by evportel          #+#    #+#             */
-/*   Updated: 2023/11/15 10:56:34 by evportel         ###   ########.fr       */
+/*   Created: 2023/11/14 23:25:07 by evportel          #+#    #+#             */
+/*   Updated: 2023/11/14 23:34:28 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include <unistd.h>
 
-# define EXIT_SUCCESS 0
-# define EXIT_FAILURE 1
+int	main(int argc __attribute__((unused)), char **argv __attribute__((unused)), char **env __attribute__((unused)))
+{
+	char	*cmd = "ls";
+	char	*path = "/usr/bin/ls";
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include "libft/libft.h"
+	char	*cmd_args[] = {cmd, NULL};
 
-int	ft_clean_mult_allocations(char **arrays);
-
-#endif
+	execve(path, cmd_args, env);
+	return 1;
+}
