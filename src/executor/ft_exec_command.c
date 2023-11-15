@@ -6,27 +6,13 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 21:23:20 by evportel          #+#    #+#             */
-/*   Updated: 2023/11/15 16:15:41 by evportel         ###   ########.fr       */
+/*   Updated: 2023/11/15 20:53:02 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-static void	*ft_free_pointers(char **strings)
-{
-	int	index;
-
-	index = 0;
-	while (strings[index] != NULL)
-	{
-		free(strings[index]);
-		index++;
-	}
-	free(strings);
-	return (NULL);
-}
-
-static char	**ft_get_path_command(char **env)
+char	**ft_get_path_command(char **env)
 {
 	int		index;
 	char	**env_all_path;
@@ -50,7 +36,7 @@ static char	**ft_get_path_command(char **env)
 	return (env_all_path);
 }
 
-static char	*ft_find_command_path(char *command, char **env)
+char	*ft_find_command_path(char *command, char **env)
 {
 	int		index;
 	char	*command_path;
@@ -62,13 +48,13 @@ static char	*ft_find_command_path(char *command, char **env)
 		command_path = ft_strjoin(env[index], command);
 		if (access(command_path, F_OK | X_OK) == 0)
 		{
-			ft_free_pointers(env);
+			ft_clean_mult_allocations(env);
 			return (command_path);
 		}
 		free(command_path);
 		index++;
 	}
-	ft_free_pointers(env);
+	ft_clean_mult_allocations(env);
 	return (NULL);
 }
 
@@ -84,9 +70,8 @@ int	ft_exec_command(char *command, char **env)
 	if (path_exec == NULL)
 	{
 		free(path_exec);
-		ft_free_pointers(command_args);
+		ft_clean_mult_allocations(command_args);
 		return (EXIT_FAILURE);
 	}
-	execve(path_exec, command_args, env);
-	return (EXIT_SUCCESS);
+	return (execve(path_exec, command_args, env));
 }

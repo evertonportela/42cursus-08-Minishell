@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 11:03:51 by evportel          #+#    #+#             */
-/*   Updated: 2023/11/15 11:13:13 by evportel         ###   ########.fr       */
+/*   Updated: 2023/11/15 18:51:12 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,5 @@ int	ft_clean_mult_allocations(char **arrays)
 		index++;
 	}
 	free(arrays);
-	if (arrays != NULL)
-		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 #    By: evportel <evportel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/05 20:15:50 by evportel          #+#    #+#              #
-#    Updated: 2023/11/15 15:25:54 by evportel         ###   ########.fr        #
+#    Updated: 2023/11/15 19:09:04 by evportel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ FLAGS		=	-Wall -Wextra -Werror -g3
 SRC			=	${addprefix src/, main.c} \
 				${addprefix src/executor/, ft_exec_command.c} \
 				${addprefix src/utils/, ft_clean_mult_allocations.c} \
+				${addprefix src/utils/, ft_get_local_user.c} \
 				${addprefix src/utils/, ft_minishell_error.c}
 
 OBJ			=	${SRC:.c=.o}
