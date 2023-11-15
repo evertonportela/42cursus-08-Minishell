@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pipex_error.c                                   :+:      :+:    :+:   */
+/*   ft_minishell_error.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 19:04:19 by evportel          #+#    #+#             */
-/*   Updated: 2023/11/15 12:42:54 by evportel         ###   ########.fr       */
+/*   Updated: 2023/11/15 15:26:21 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void	ft_pipex_error(int cod_exit, char *str)
+void	ft_minishell_error(int cod_exit, char *str)
 {
-	write(2, "PipexError: ", 12);
+	write(2, "sururu: ", 12);
 	if (cod_exit == 127)
 		write(2, "command not found", 18);
 	else

@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 20:25:08 by evportel          #+#    #+#             */
-/*   Updated: 2023/11/15 12:49:34 by evportel         ###   ########.fr       */
+/*   Updated: 2023/11/15 17:43:26 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,16 @@
 # include <readline/readline.h>
 # include <readline/history.h>
 # include "libft/libft.h"
+# include <fcntl.h>
+
+# include <string.h>
+# include <sys/types.h>
+# include <sys/wait.h>
+# include <unistd.h>
+
 
 int		ft_clean_mult_allocations(char **arrays);
 int		ft_exec_command(char *command, char **env);
-void	ft_pipex_error(int cod_exit, char *str);
+void	ft_minishell_error(int cod_exit, char *str);
 
 #endif
