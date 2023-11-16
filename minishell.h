@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 20:25:08 by evportel          #+#    #+#             */
-/*   Updated: 2023/11/15 19:01:25 by evportel         ###   ########.fr       */
+/*   Updated: 2023/11/15 21:07:32 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define MINISHELL_H
 
 # define EXIT_SUCCESS 0
+# define EXIT_FAILURE 1
 # define EXIT_FAILURE 1
 
 # include <stdio.h>
