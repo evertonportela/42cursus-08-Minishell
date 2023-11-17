@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_clean_mult_allocations.c                        :+:      :+:    :+:   */
+/*   ft_minishell_error.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/15 11:03:51 by evportel          #+#    #+#             */
-/*   Updated: 2023/11/15 21:10:02 by evportel         ###   ########.fr       */
+/*   Created: 2023/09/09 19:04:19 by evportel          #+#    #+#             */
+/*   Updated: 2023/11/15 20:47:51 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-int	ft_clean_mult_allocations(char **arrays)
+void	ft_minishell_error(int cod_exit, char *str)
 {
-	int	index;
-
-	index = 0;
-	while (arrays[index] != NULL)
+	write(2, "minishell: ", 12);
+	if (cod_exit == 127)
 	{
-		free(arrays[index]);
-		index++;
+		write(2, "command not found\n", 19);
+		exit(127);
 	}
-	free(arrays);
-	return (EXIT_SUCCESS);
+	else
+		write(2, strerror(cod_exit), ft_strlen(strerror(cod_exit)));
+	if (str[0] != 0)
+	{
+		write(2, ": ", 2);
+		write(2, &str[0], ft_strlen(&str[0]));
+	}
+	write(2, "\n", 1);
+	if (cod_exit == 0)
+		exit(cod_exit);
+	else
+		exit(EXIT_FAILURE);
 }

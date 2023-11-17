@@ -6,31 +6,37 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 20:03:12 by evportel          #+#    #+#             */
-/*   Updated: 2023/11/15 11:03:27 by evportel         ###   ########.fr       */
+/*   Updated: 2023/11/15 21:09:43 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-int	main(void)
+int	main(int argc __attribute__((unused)), char **argv __attribute__((unused)),
+		char **env)
 {
 	char	*prompt_line;
-	int		status;
+	char	*prompt;
+	int		pid;
 
-	status = 0;
-	while (status == 0)
+	prompt = ft_strjoin(ft_get_local_user(env), "@minishell: $ ");
+	while (1)
 	{
-		prompt_line = readline("cadet@sururu: $ ");
-		if (prompt_line == NULL)
-			exit(1);
-		if (prompt_line[0] == '\0')
-			exit(1);
+		prompt_line = readline(prompt);
 		if (ft_strncmp(prompt_line, "exit", 4) == 0)
+			break ;
+		pid = fork();
+		if (pid < 0)
+			ft_minishell_error(1, "error setting pid");
+		if (pid == 0)
 		{
-			printf("exit\n");
-			status = 1;
+			if (ft_exec_command(prompt_line, env) == EXIT_FAILURE)
+				ft_minishell_error(127, "");
 		}
-		free(prompt_line);
+		else
+			waitpid(pid, NULL, 0);
 	}
+	free(prompt);
+	ft_printf("exit\n");
 	return (EXIT_SUCCESS);
 }
