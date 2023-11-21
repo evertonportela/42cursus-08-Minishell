@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 19:04:19 by evportel          #+#    #+#             */
-/*   Updated: 2023/11/15 20:47:51 by evportel         ###   ########.fr       */
+/*   Updated: 2023/11/20 23:19:48 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_minishell_error(int cod_exit, char *str)
 {
-	write(2, "minishell: ", 12);
+	write(2, "sururu: ", 9);
 	if (cod_exit == 127)
 	{
 		write(2, "command not found\n", 19);
@@ -28,8 +28,8 @@ void	ft_minishell_error(int cod_exit, char *str)
 		write(2, &str[0], ft_strlen(&str[0]));
 	}
 	write(2, "\n", 1);
-	if (cod_exit == 0)
-		exit(cod_exit);
-	else
-		exit(EXIT_FAILURE);
+	// if (cod_exit == 0)
+	// 	exit(cod_exit);
+	// else
+	// 	exit(EXIT_FAILURE);
 }
