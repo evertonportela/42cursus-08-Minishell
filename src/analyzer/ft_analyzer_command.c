@@ -22,9 +22,7 @@ int	ft_check_single_quotes(char *command_line)
 	while (command_line[index] != '\0')
 	{
 		if (command_line[index] == '\'')
-		{
 			count_quote++;
-		}
 		index++;
 	}
 	if ((count_quote % 2) == 0)

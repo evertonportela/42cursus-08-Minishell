@@ -14,7 +14,7 @@
 
 void	ft_minishell_error(int cod_exit, char *str)
 {
-	write(2, "sururu: ", 9);
+	write(2, "sururushell: ", 9);
 	if (cod_exit == 127)
 	{
 		write(2, "command not found\n", 19);
@@ -28,8 +28,4 @@ void	ft_minishell_error(int cod_exit, char *str)
 		write(2, &str[0], ft_strlen(&str[0]));
 	}
 	write(2, "\n", 1);
-	// if (cod_exit == 0)
-	// 	exit(cod_exit);
-	// else
-	// 	exit(EXIT_FAILURE);
 }
