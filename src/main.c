@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 20:03:12 by evportel          #+#    #+#             */
-/*   Updated: 2023/11/15 21:09:43 by evportel         ###   ########.fr       */
+/*   Updated: 2023/11/20 23:27:56 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,15 @@
 int	main(int argc __attribute__((unused)), char **argv __attribute__((unused)),
 		char **env)
 {
-	char	*prompt_line;
+	char	*command_line;
 	char	*prompt;
-	int		pid;
 
-	prompt = ft_strjoin(ft_get_local_user(env), "@minishell: $ ");
+	prompt = ft_strjoin(ft_get_local_user(env), "@sururushell: $ ");
 	while (1)
 	{
-		prompt_line = readline(prompt);
-		if (ft_strncmp(prompt_line, "exit", 4) == 0)
-			break ;
-		pid = fork();
-		if (pid < 0)
-			ft_minishell_error(1, "error setting pid");
-		if (pid == 0)
-		{
-			if (ft_exec_command(prompt_line, env) == EXIT_FAILURE)
-				ft_minishell_error(127, "");
-		}
-		else
-			waitpid(pid, NULL, 0);
+		command_line = readline(prompt);
+		ft_analyzer_command(env, command_line);
+		free(command_line);
 	}
-	free(prompt);
-	ft_printf("exit\n");
 	return (EXIT_SUCCESS);
 }
