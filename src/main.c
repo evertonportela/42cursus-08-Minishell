@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 20:03:12 by evportel          #+#    #+#             */
-/*   Updated: 2023/11/22 21:00:20 by evportel         ###   ########.fr       */
+/*   Updated: 2023/11/22 21:58:34 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int	main(int argc __attribute__((unused)), char **argv __attribute__((unused)),
 	while (1)
 	{
 		command_line = readline(prompt);
-		ft_analyzer_command(env, command_line);
+		if (ft_analyzer_command(command_line) == EXIT_SUCCESS)
+			ft_executor_command(env, command_line);
 		free(command_line);
 	}
 	return (EXIT_SUCCESS);

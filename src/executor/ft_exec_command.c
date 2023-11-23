@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 21:23:20 by evportel          #+#    #+#             */
-/*   Updated: 2023/11/20 23:20:23 by evportel         ###   ########.fr       */
+/*   Updated: 2023/11/22 22:00:26 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	*ft_find_command_path(char *command, char **env)
 	return (NULL);
 }
 
-int	ft_exec_command(char *command, char **env)
+int	ft_execve_command(char **env, char *command)
 {
 	char	**command_args;
 	char	*path_exec;
@@ -74,4 +74,21 @@ int	ft_exec_command(char *command, char **env)
 		return (EXIT_FAILURE);
 	}
 	return (execve(path_exec, command_args, env));
+}
+
+int	ft_executor_command(char **env, char *command)
+{
+	pid_t	pid;
+
+	pid = fork();
+	if (pid < 0)
+		ft_minishell_error(1, "error setting pid");
+	if (pid == 0)
+	{
+		if (ft_execve_command(env, command) == EXIT_FAILURE)
+			ft_minishell_error(127, "");
+	}
+	else
+		waitpid(pid, NULL, 0);
+	return (EXIT_SUCCESS);
 }

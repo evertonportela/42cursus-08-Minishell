@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 20:25:08 by evportel          #+#    #+#             */
-/*   Updated: 2023/11/20 22:37:20 by evportel         ###   ########.fr       */
+/*   Updated: 2023/11/22 21:58:12 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,13 @@
 # include <unistd.h>
 
 /* Analyzer functions */
-int		ft_analyzer_command(char **env, char *command_line);
+int		ft_analyzer_command(char *command_line);
+int		ft_check_double_quotes(char *command_line);
+int		ft_check_single_quotes(char *command_line);
 
 /* Executions functions */
-int		ft_exec_command(char *command, char **env);
+int		ft_executor_command(char **env, char *command);
+int		ft_execve_command(char **env, char *command);
 char	*ft_find_command_path(char *command, char **env);
 char	**ft_get_path_command(char **env);
 
