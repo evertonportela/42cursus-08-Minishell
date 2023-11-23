@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 20:03:12 by evportel          #+#    #+#             */
-/*   Updated: 2023/11/20 23:27:56 by evportel         ###   ########.fr       */
+/*   Updated: 2023/11/22 21:00:20 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc __attribute__((unused)), char **argv __attribute__((unused)),
 	char	*command_line;
 	char	*prompt;
 
-	prompt = ft_strjoin(ft_get_local_user(env), "@sururushell: $ ");
+	prompt = ft_strjoin(ft_get_local_user(env), "@massunim: $ ");
 	while (1)
 	{
 		command_line = readline(prompt);
