@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 19:04:19 by evportel          #+#    #+#             */
-/*   Updated: 2023/11/22 20:59:50 by evportel         ###   ########.fr       */
+/*   Updated: 2023/11/22 21:31:17 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_minishell_error(int cod_exit, char *str)
 {
-	write(2, "massunimshell: ", 14);
+	write(2, "massunim: ", 14);
 	if (cod_exit == 127)
 	{
 		write(2, "command not found\n", 19);
