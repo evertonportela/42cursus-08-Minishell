@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 20:50:48 by evportel          #+#    #+#             */
-/*   Updated: 2023/11/22 21:58:02 by evportel         ###   ########.fr       */
+/*   Updated: 2023/11/23 22:01:05 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_check_single_quotes(char *command_line)
 	index = 0;
 	while (command_line[index] != '\0')
 	{
-		if (command_line[index] == '\"')
+		if (command_line[index] == '\'')
 			count_quote++;
 		index++;
 	}
@@ -39,7 +39,7 @@ int	ft_check_double_quotes(char *command_line)
 	index = 0;
 	while (command_line[index] != '\0')
 	{
-		if (command_line[index] == '\'')
+		if (command_line[index] == '\"')
 			count_quote++;
 		index++;
 	}
