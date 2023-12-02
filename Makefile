@@ -24,6 +24,7 @@ FLAGS		=	-Wall -Wextra -Werror -g3
 SRC			=	${addprefix src/, main.c} \
 				${addprefix src/analyzer/, ft_analyzer_command.c} \
 				${addprefix src/executor/, ft_exec_command.c} \
+				${addprefix src/tokenize/, ft_tokenize.c} \
 				${addprefix src/utils/, ft_clean_mult_allocations.c} \
 				${addprefix src/utils/, ft_get_local_user.c} \
 				${addprefix src/utils/, ft_minishell_error.c}
