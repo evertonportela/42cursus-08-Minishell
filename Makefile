@@ -6,7 +6,7 @@
 #    By: evportel <evportel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/05 20:15:50 by evportel          #+#    #+#              #
-#    Updated: 2023/11/20 20:51:13 by evportel         ###   ########.fr        #
+#    Updated: 2023/12/02 21:01:32 by evportel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRC			=	${addprefix src/, main.c} \
 				${addprefix src/tokenize/, ft_tokenize.c} \
 				${addprefix src/utils/, ft_clean_mult_allocations.c} \
 				${addprefix src/utils/, ft_get_local_user.c} \
-				${addprefix src/utils/, ft_minishell_error.c}
+				${addprefix src/utils/, ft_minishell_error.c} \
+				${addprefix src/utils/, ft_minishell_init.c}
 
 OBJ			=	${SRC:.c=.o}
 HEADER		=	-I./

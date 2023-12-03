@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 21:23:20 by evportel          #+#    #+#             */
-/*   Updated: 2023/11/22 22:00:26 by evportel         ###   ########.fr       */
+/*   Updated: 2023/12/02 20:08:03 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	ft_executor_command(char **env, char *command)
 	if (pid == 0)
 	{
 		if (ft_execve_command(env, command) == EXIT_FAILURE)
-			ft_minishell_error(127, "");
+			ft_minishell_error(127, "command not found");
 	}
 	else
 		waitpid(pid, NULL, 0);
