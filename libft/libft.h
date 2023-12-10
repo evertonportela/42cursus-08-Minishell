@@ -64,6 +64,10 @@ int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 
+char *ft_strtok(char *str, const char *delim);
+char *ft_strpbrk(const char *str, const char *charset);
+
+
 /* Funtions ft_printf ******************************************************* */
 int		ft_printf(const char *format, ...);
 int		add_one_more(int flag);
