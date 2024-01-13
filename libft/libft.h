@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:02:30 by evportel          #+#    #+#             */
-/*   Updated: 2023/09/05 17:42:07 by evportel         ###   ########.fr       */
+/*   Updated: 2024/01/13 18:27:21 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,8 @@ int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 
-char *ft_strtok(char *str, const char *delim);
-char *ft_strpbrk(const char *str, const char *charset);
-
+char	*ft_strtok(char *str, const char *delim);
+char	*ft_strpbrk(const char *str, const char *charset);
 
 /* Funtions ft_printf ******************************************************* */
 int		ft_printf(const char *format, ...);

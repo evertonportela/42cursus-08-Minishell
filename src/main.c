@@ -33,10 +33,11 @@ int	main(int argc __attribute__((unused)), char **argv __attribute__((unused)),
 		if (ft_analyzer_command(command_line) == EXIT_SUCCESS)
 		{
 			ft_tokenize_and_add(&minishell->tokens, command_line);
-			// ft_executor_command(env, command_line);
 			ft_executor_command(env, &minishell->tokens->content[0]);
 		}
 		free(command_line);
 	}
 	return (EXIT_SUCCESS);
 }
+
+// 36 ft_executor_command(env, command_line);

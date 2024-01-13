@@ -6,7 +6,7 @@
 /*   By: evportel <evportel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 19:50:22 by evportel          #+#    #+#             */
-/*   Updated: 2024/01/10 21:37:00 by evportel         ###   ########.fr       */
+/*   Updated: 2024/01/13 18:18:27 by evportel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ void	ft_add_token(t_token **head, char *content)
 	t_token	*new_token;
 
 	new_token = ft_create_token(content);
-	// new_token->next = *head;
-	// *head = new_token;
 	ft_lstadd_back((t_list **)head, (t_list *)new_token);
 }
 
